@@ -106,7 +106,7 @@ export function useContractForm() {
         { name: 'gia_ban', label: 'Giá bán', type: 'text', placeholder: '2,000,000,000 VND', required: true },
         { name: 'b_coc_tien', label: 'Tiền cọc', type: 'text', placeholder: '200,000,000 VND', required: true },
         { name: 'coc_bang', label: 'Cọc bằng', type: 'text', placeholder: 'Tiền mặt' },
-        { name: 'tien_con_lai', label: 'Tiền còn lại', type: 'text', placeholder: '1,800,000,000 VND' }
+        { name: 'tien_con_lai', label: 'Tiền còn lại', type: 'text', placeholder: '1,800,000,000 VND', required: true, readonly: true }
       ]
     },
     {
