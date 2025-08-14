@@ -135,6 +135,7 @@
                           <input
                             v-model="formData[field.name]"
                             type="date"
+                            lang="vi"
                             class="field-input date-input"
                             :class="{ 'has-value': formData[field.name] }"
                             :readonly="field.readonly"
@@ -151,6 +152,7 @@
                             :placeholder="field.placeholder"
                             class="field-input"
                             :class="{ 'has-value': formData[field.name] }"
+                            :inputmode="field.inputmode"
                             :readonly="field.readonly"
                             @input="handleInputChange(field.name, $event.target.value)"
                           />
@@ -497,7 +499,7 @@ export default {
           { name: 'c_ong_cap_ngay', label: 'Cấp ngày', type: 'date', required: true },
           { name: 'c_ong_noi_cap', label: 'Nơi cấp', type: 'text', placeholder: 'Cục cảnh sát', required: true },
           { name: 'c_dia_chi', label: 'Địa chỉ thường trú', type: 'text', placeholder: 'Thôn Hưng Mỹ - Cẩm Bình - Hà Tĩnh', required: true },
-          { name: 'tien_c', label: 'Tiền Bên C nhận', type: 'text', placeholder: '0 VND' }
+          { name: 'tien_c', label: 'Tiền Bên C nhận', type: 'text', placeholder: '0 VND', required: true, inputmode: 'numeric' }
         ]
       },
       {
@@ -506,8 +508,8 @@ export default {
         icon: 'fas fa-home',
         colorClass: 'group-teal',
         fields: [
-          { name: 'tds', label: 'Thửa đất số', type: 'text', placeholder: '123', required: true },
-          { name: 'bds', label: 'Tờ bản đồ số', type: 'text', placeholder: '45', required: true },
+          { name: 'tds', label: 'Thửa đất số', type: 'number', placeholder: '123', required: true },
+          { name: 'bds', label: 'Tờ bản đồ số', type: 'number', placeholder: '45', required: true },
           { name: 's', label: 'Diện tích (m²)', type: 'number', placeholder: '100', required: true },
           { name: 'dia_chi_thua_dat', label: 'Địa chỉ thửa đất', type: 'text', placeholder: 'Thôn Hưng Mỹ - Cẩm Bình - Hà Tĩnh', required: true },
           { name: 'dat_so', label: 'Số giấy CN QSH-QSD', type: 'text', placeholder: 'QSD001234', required: true },
@@ -520,10 +522,10 @@ export default {
         icon: 'fas fa-money-bill-wave',
         colorClass: 'group-emerald',
         fields: [
-          { name: 'gia_ban', label: 'Giá bán', type: 'text', placeholder: '2,000,000,000 VND', required: true },
-          { name: 'b_coc_tien', label: 'Tiền cọc', type: 'text', placeholder: '200,000,000 VND', required: true },
+          { name: 'gia_ban', label: 'Giá bán', type: 'text', placeholder: '2,000,000,000 VND', required: true, inputmode: 'numeric' },
+          { name: 'b_coc_tien', label: 'Tiền cọc', type: 'text', placeholder: '200,000,000 VND', required: true, inputmode: 'numeric' },
           { name: 'coc_bang', label: 'Cọc bằng', type: 'text', placeholder: 'Tiền mặt', required: true },
-          { name: 'tien_con_lai', label: 'Tiền còn lại', type: 'text', placeholder: '1,800,000,000 VND', required: true }
+          { name: 'tien_con_lai', label: 'Tiền còn lại', type: 'text', placeholder: '1,800,000,000 VND', required: true, inputmode: 'numeric' }
         ]
       },
       {
@@ -536,7 +538,7 @@ export default {
           { name: 'ke_tu_ngay', label: 'Kể từ ngày', type: 'date', required: true },
           { name: 'den_ngay', label: 'Đến ngày', type: 'date', required: true, readonly: true },
           { name: 'x', label: 'Số lần bồi thường', type: 'number', placeholder: '2', required: true },
-          { name: 'boi_thuong', label: 'Tổng tiền bồi thường', type: 'text', placeholder: '400,000,000 VND', required: true, readonly: true }
+          { name: 'boi_thuong', label: 'Tổng tiền bồi thường', type: 'text', placeholder: '400,000,000 VND', required: true, readonly: true, inputmode: 'numeric' }
         ]
       },
       {
@@ -620,7 +622,7 @@ export default {
       // Extract numbers from string
       const number = parseFloat(amount.toString().replace(/[^\d]/g, ''))
       if (isNaN(number) || number === 0) return ''
-      return number.toLocaleString('vi-VN')
+      return number.toLocaleString('en-US')
     }
 
     const convertToText = (amount) => {
@@ -670,6 +672,18 @@ export default {
       }
     }
 
+    const validateForm = () => {
+      for (const group of fieldGroups) {
+        for (const field of group.fields) {
+          if (field.required && !formData[field.name]) {
+            alert(`Vui lòng nhập ${field.label}`)
+            return false
+          }
+        }
+      }
+      return true
+    }
+
     // Watch for changes to auto-calculate
     const handleInputChange = (fieldName, value) => {
       formData[fieldName] = value
@@ -683,9 +697,9 @@ export default {
       if (fieldName === 'b_coc_tien' || fieldName === 'x') {
         calculateCompensation()
       }
-      
+
       // Format currency inputs
-      if (['gia_ban', 'b_coc_tien', 'tien_con_lai'].includes(fieldName) && value) {
+      if (['gia_ban', 'b_coc_tien', 'tien_con_lai', 'tien_c', 'boi_thuong'].includes(fieldName) && value) {
         const formatted = formatCurrency(value)
         if (formatted) {
           formData[fieldName] = formatted + ' VND'
@@ -694,6 +708,7 @@ export default {
     }
 
     const generatePreview = async () => {
+      if (!validateForm()) return
       isGenerating.value = true
       
       // Simulate processing time
@@ -722,6 +737,7 @@ export default {
 
     const printPreview = () => {
       if (!hasPreview.value) return
+      if (!validateForm()) return
       
       const printWindow = window.open('', '_blank')
       if (!printWindow) return
@@ -970,6 +986,7 @@ export default {
       formatCurrency,
       calculateEndDate,
       calculateCompensation,
+      validateForm,
       handleInputChange,
       generatePreview,
       downloadDocx,
