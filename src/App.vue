@@ -5,7 +5,7 @@
       <div class="header-content">
         <div class="logo">
           <div class="logo-icon">
-            <i class="fas fa-file-contract"></i>
+            <img src="/logo.svg">
           </div>
           <div class="logo-text">
             <h1>Hợp đồng đặt cọc</h1>
