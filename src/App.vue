@@ -230,10 +230,10 @@
                   
                   <div class="contract-body">
                     <p class="contract-date">
-                      Hôm nay, ngày <strong>{{ getDatePart(formData.ngay_ky, 'day') }}</strong> 
-                      tháng <strong>{{ getDatePart(formData.ngay_ky, 'month') }}</strong> 
-                      năm <strong>{{ getDatePart(formData.ngay_ky, 'year') }}</strong>. 
-                      Tại <strong>{{ formData.tai_dia_chi || '_________________________' }}</strong>.
+                      Hôm nay, ngày <strong>{{ getDatePart(formData.ngay_ky, 'day') }}</strong>  
+                      tháng <strong>{{ getDatePart(formData.ngay_ky, 'month') }}</strong>  
+                      năm <strong>{{ getDatePart(formData.ngay_ky, 'year') }}</strong> . 
+                      Tại <strong>{{ formData.tai_dia_chi || '_________________________' }}</strong> .
                     </p>
                     
                     <!-- Bên A -->
@@ -241,25 +241,25 @@
                       <h3>Bên nhận đặt cọc (Bên A):</h3>
                       <table class="party-table">
                         <tr>
-                          <td>Ông: {{ formData.a_ong || '_________________________' }}</td>
-                          <td>Sinh ngày: {{ formatDate(formData.a_ong_sinh_ngay) || '__________' }}</td>
+                          <td>Ông: <strong>{{ formData.a_ong || '_________________________' }}</strong> </td>
+                          <td>Sinh ngày: <strong>{{ formatDate(formData.a_ong_sinh_ngay) || '__________' }}</strong> </td>
                         </tr>
                         <tr>
-                          <td>CCCD Số: {{ formData.a_ong_cccd || '______________' }}</td>
-                          <td>Cấp ngày: {{ formatDate(formData.a_ong_cap_ngay) || '__________' }}</td>
-                          <td>Nơi cấp: {{ formData.a_ong_noi_cap || '__________' }}</td>
+                          <td>CCCD Số: <strong>{{ formData.a_ong_cccd || '______________' }}</strong> </td>
+                          <td>Cấp ngày: <strong>{{ formatDate(formData.a_ong_cap_ngay) || '__________' }}</strong> </td>
+                          <td>Nơi cấp: <strong>{{ formData.a_ong_noi_cap || '__________' }}</strong> </td>
                         </tr>
                         <tr v-if="formData.a_ba">
-                          <td>Và Bà: {{ formData.a_ba }}</td>
-                          <td>Sinh ngày: {{ formatDate(formData.a_ba_sinh_ngay) || '__________' }}</td>
+                          <td>Và Bà: <strong>{{ formData.a_ba }}</strong> </td>
+                          <td>Sinh ngày: <strong>{{ formatDate(formData.a_ba_sinh_ngay) || '__________' }}</strong> </td>
                         </tr>
                         <tr v-if="formData.a_ba">
-                          <td>CCCD Số: {{ formData.a_ba_cccd || '______________' }}</td>
-                          <td>Cấp ngày: {{ formatDate(formData.a_ba_cap_ngay) || '__________' }}</td>
-                          <td>Nơi cấp: {{ formData.a_ba_noi_cap || '__________' }}</td>
+                          <td>CCCD Số: <strong>{{ formData.a_ba_cccd || '______________' }}</strong> </td>
+                          <td>Cấp ngày: <strong>{{ formatDate(formData.a_ba_cap_ngay) || '__________' }}</strong> </td>
+                          <td>Nơi cấp: <strong>{{ formData.a_ba_noi_cap || '__________' }}</strong> </td>
                         </tr>
                         <tr>
-                          <td colspan="3">Địa chỉ thường trú: {{ formData.a_dia_chi || '_________________________' }}</td>
+                          <td colspan="3">Địa chỉ thường trú: <strong>{{ formData.a_dia_chi || '_________________________' }}</strong> </td>
                         </tr>
                       </table>
                     </div>
@@ -269,16 +269,16 @@
                       <h3>Bên đặt cọc (Bên B):</h3>
                       <table class="party-table">
                         <tr>
-                          <td>Ông: {{ formData.b_ong || '_________________________' }}</td>
-                          <td>Sinh ngày: {{ formatDate(formData.b_ong_sinh_ngay) || '__________' }}</td>
+                          <td>Ông: <strong>{{ formData.b_ong || '_________________________' }}</strong> </td>
+                          <td>Sinh ngày: <strong>{{ formatDate(formData.b_ong_sinh_ngay) || '__________' }}</strong> </td>
                         </tr>
                         <tr>
-                          <td>CCCD Số: {{ formData.b_ong_cccd || '______________' }}</td>
-                          <td>Cấp ngày: {{ formatDate(formData.b_ong_cap_ngay) || '__________' }}</td>
-                          <td>Nơi cấp: {{ formData.b_ong_noi_cap || '__________' }}</td>
+                          <td>CCCD Số: <strong>{{ formData.b_ong_cccd || '______________' }}</strong> </td>
+                          <td>Cấp ngày: <strong>{{ formatDate(formData.b_ong_cap_ngay) || '__________' }}</strong> </td>
+                          <td>Nơi cấp: <strong>{{ formData.b_ong_noi_cap || '__________' }}</strong> </td>
                         </tr>
                         <tr>
-                          <td colspan="3">Địa chỉ thường trú: {{ formData.b_dia_chi || '_________________________' }}</td>
+                          <td colspan="3">Địa chỉ thường trú: <strong>{{ formData.b_dia_chi || '_________________________' }}</strong> </td>
                         </tr>
                       </table>
                     </div>
@@ -288,16 +288,16 @@
                       <h3>Người làm chứng (Bên C):</h3>
                       <table class="party-table">
                         <tr>
-                          <td>Ông: {{ formData.c_ong }}</td>
-                          <td>Sinh ngày: {{ formatDate(formData.c_ong_sinh_ngay) || '__________' }}</td>
+                          <td>Ông: <strong>{{ formData.c_ong }}</strong> </td>
+                          <td>Sinh ngày: <strong>{{ formatDate(formData.c_ong_sinh_ngay) || '__________' }}</strong> </td>
                         </tr>
                         <tr>
-                          <td>CCCD Số: {{ formData.c_ong_cccd || '______________' }}</td>
-                          <td>Cấp ngày: {{ formatDate(formData.c_ong_cap_ngay) || '__________' }}</td>
-                          <td>Nơi cấp: {{ formData.c_ong_noi_cap || '__________' }}</td>
+                          <td>CCCD Số: <strong>{{ formData.c_ong_cccd || '______________' }}</strong> </td>
+                          <td>Cấp ngày: <strong>{{ formatDate(formData.c_ong_cap_ngay) || '__________' }}</strong> </td>
+                          <td>Nơi cấp: <strong>{{ formData.c_ong_noi_cap || '__________' }}</strong> </td>
                         </tr>
                         <tr>
-                          <td colspan="3">Địa chỉ thường trú: {{ formData.c_dia_chi || '_________________________' }}</td>
+                          <td colspan="3">Địa chỉ thường trú: <strong>{{ formData.c_dia_chi || '_________________________' }}</strong> </td>
                         </tr>
                       </table>
                     </div>
@@ -308,9 +308,9 @@
                     <div class="contract-section">
                       <h3>ĐIỀU 1: TÀI SẢN ĐẶT CỌC:</h3>
                       <div class="property-box">
-                        <p>Bên A đồng ý bán cho Bên B nhà - đất tại: Thửa đất số: <strong>{{ formData.tds || '___' }}</strong>. Tờ bản đồ số: <strong>{{ formData.bds || '___' }}</strong>. Diện tích: <strong>{{ formData.s || '___' }}</strong> m².</p>
-                        <p>Địa chỉ thửa đất: <strong>{{ formData.dia_chi_thua_dat || '_________________________' }}</strong>.</p>
-                        <p>Kèm giấy chứng nhận QSH - QSD đất số: <strong>{{ formData.dat_so || '___' }}</strong>. Tài sản gắn liền với đất: <strong>{{ formData.tai_san_gan_lien_dat || '_________________________' }}</strong>.</p>
+                        <p>Bên A đồng ý bán cho Bên B nhà - đất tại: Thửa đất số: <strong>{{ formData.tds || '___' }}</strong> . Tờ bản đồ số: <strong>{{ formData.bds || '___' }}</strong> . Diện tích: <strong>{{ formData.s || '___' }}</strong>  m².</p>
+                        <p>Địa chỉ thửa đất: <strong>{{ formData.dia_chi_thua_dat || '_________________________' }}</strong> .</p>
+                        <p>Kèm giấy chứng nhận QSH - QSD đất số: <strong>{{ formData.dat_so || '___' }}</strong> . Tài sản gắn liền với đất: <strong>{{ formData.tai_san_gan_lien_dat || '_________________________' }}</strong> .</p>
                       </div>
                     </div>
                     
@@ -319,20 +319,13 @@
                       <h3>ĐIỀU 2: THỎA THUẬN GIÁ BÁN, CHUYỂN NHƯỢNG:</h3>
                       <table class="payment-table-full">
                         <tr>
-                          <td>Tổng giá bán: {{ formData.gia_ban || '_______________' }}</td>
-                          <td>Bằng chữ: {{ convertToText(formData.gia_ban) || '_______________' }}</td>
+                          <td colspan="2">Tổng giá bán: <strong>{{ formData.gia_ban || '_______________' }}</strong> (Bằng chữ: <strong>{{ convertToText(formData.gia_ban) || '_______________' }}</strong> ).</td>
                         </tr>
                         <tr>
-                          <td>Bên B cọc số tiền: {{ formData.b_coc_tien || '_______________' }}</td>
-                          <td>Bằng chữ: {{ convertToText(formData.b_coc_tien) || '_______________' }}</td>
+                          <td colspan="2">Bên B cọc số tiền: <strong>{{ formData.b_coc_tien || '_______________' }}</strong> (Bằng chữ: <strong>{{ convertToText(formData.b_coc_tien) || '_______________' }}</strong> ). Hình thức cọc bằng <strong>{{ formData.coc_bang || '_______________' }}</strong>.</td>
                         </tr>
                         <tr>
-                          <td>Cọc bằng {{ formData.coc_bang || '_______________' }}</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>Số tiền còn lại: {{ formData.tien_con_lai || '_______________' }}</td>
-                          <td>Bằng chữ: {{ convertToText(formData.tien_con_lai) || '_______________' }}</td>
+                          <td colspan="2">Số tiền còn lại: <strong>{{ formData.tien_con_lai || '_______________' }}</strong> (Bằng chữ: <strong>{{ convertToText(formData.tien_con_lai) || '_______________' }}</strong> ).</td>
                         </tr>
                       </table>
                     </div>
@@ -340,7 +333,7 @@
                     <!-- ĐIỀU 3: THỜI HẠN -->
                     <div class="contract-section">
                       <h3>ĐIỀU 3: THỜI HẠN ĐẶT CỌC - THANH TOÁN:</h3>
-                      <p>Thời hạn đặt cọc là: <strong>{{ formData.so_ngay_coc || '___' }}</strong> (ngày), kể từ ngày <strong>{{ formatDate(formData.ke_tu_ngay) || '___' }}</strong> đến ngày <strong>{{ formatDate(formData.den_ngay) || '___' }}</strong></p>
+                      <p>Thời hạn đặt cọc là: <strong>{{ formData.so_ngay_coc || '___' }}</strong>  (ngày), kể từ ngày <strong>{{ formatDate(formData.ke_tu_ngay) || '___' }}</strong>  đến ngày <strong>{{ formatDate(formData.den_ngay) || '___' }}</strong> </p>
                       
                       <p>Trong thời gian đặt cọc này, Bên A và Bên B sẽ tiến hành làm thủ tục công chứng tại cơ quan nhà nước có thẩm quyền. Khi thủ tục công chứng hoàn tất, Bên B phải giao đủ số tiền còn lại cho Bên A.</p>
                     </div>
@@ -359,17 +352,19 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td>Bên {{ formData.tb || '___' }} đóng</td>
-                            <td>Bên {{ formData.tncn || '___' }} đóng</td>
-                            <td>Bên {{ formData.pnn || '___' }} đóng</td>
-                            <td>Bên {{ formData.cc || '___' }} đóng</td>
+                            <td>Bên <strong>{{ formData.tb || '___' }}</strong>  đóng</td>
+                            <td>Bên <strong>{{ formData.tncn || '___' }}</strong>  đóng</td>
+                            <td>Bên <strong>{{ formData.pnn || '___' }}</strong>  đóng</td>
+                            <td>Bên <strong>{{ formData.cc || '___' }}</strong>  đóng</td>
                           </tr>
                           <tr>
-                            <td colspan="2">Bên A: {{ formData.a_ong || '_______________' }}.</td>
-                            <td colspan="2">Bên B: {{ formData.b_ong || '_______________' }}.</td>
+                            <td colspan="4" style="text-align: left;">Bên A: <strong>{{ formData.ben_a || '_______________' }}</strong> .</td>
+                          </tr>
+                          <tr>
+                            <td colspan="4" style="text-align: left;">Bên B: <strong>{{ formData.ben_b || '_______________' }}</strong> .</td>
                           </tr>
                           <tr v-if="formData.thoa_thuan_khac">
-                            <td colspan="4">Thỏa thuận khác: {{ formData.thoa_thuan_khac }}.</td>
+                            <td colspan="4" style="text-align: left;">Thỏa thuận khác: <strong>{{ formData.thoa_thuan_khac }}</strong> .</td>
                           </tr>
                         </tbody>
                       </table>
@@ -380,11 +375,11 @@
                       <h3>Cam kết chung:</h3>
                       <p>Bên A cam kết tài sản trên thuộc quyền sở hữu của mình, có đầy đủ các giấy tờ liên quan để chứng minh và Bên A cam đoan tài sản này không có tranh chấp thừa kế, không dính quy hoạch, không có tranh chấp với bất kỳ cơ quan tổ chức, cá nhân nào.</p>
                       
-                      <p>Sau khi Hợp đồng được ký kết, quá thời hạn thỏa thuận nêu trên nếu Bên A không chuyển nhượng tài sản đặt cọc trên cho Bên B thì Bên A phải bồi thường cho Bên B gấp <strong>{{ formData.x || '___' }}</strong> (<strong>{{ convertNumberToText(formData.x) || '___' }}</strong>) lần số tiền mà Bên B đã đặt cọc cho Bên A. Tổng số tiền hoàn trả và bồi thường là <strong>{{ formData.boi_thuong || '___' }}</strong> (Bằng chữ: <strong>{{ convertToText(formData.boi_thuong) || '___' }}</strong>).</p>
+                      <p>Sau khi Hợp đồng được ký kết, quá thời hạn thỏa thuận nêu trên nếu Bên A không chuyển nhượng tài sản đặt cọc trên cho Bên B thì Bên A phải bồi thường cho Bên B gấp <strong>{{ formData.x || '___' }}</strong>  (<strong>{{ convertNumberToText(formData.x) || '___' }}</strong> ) lần số tiền mà Bên B đã đặt cọc cho Bên A. Tổng số tiền hoàn trả và bồi thường là <strong>{{ formData.boi_thuong || '___' }}</strong>  (Bằng chữ: <strong>{{ convertToText(formData.boi_thuong) || '___' }}</strong> ).</p>
                       
                       <p>Ngược lại, nếu Bên B không tiến hành mua thì phải chịu mất số tiền đã đặt cọc. Bên B có quyền chỉ định người đứng tên nhận chuyển nhượng mà không cần sự đồng ý của Bên A.</p>
                       
-                      <p v-if="formData.tien_c">Nếu giao dịch không thành công thì Bên C vẫn được nhận đủ <strong>{{ formData.tien_c }}</strong> trên số tiền đặt cọc, khoản tiền này được trích từ Bên A (nếu Bên B không mua nữa và bỏ cọc) hoặc Bên B (nếu Bên A không bán nữa và đền cọc).</p>
+                      <p v-if="formData.tien_c && formData.tien_c != '0'">Nếu giao dịch không thành công thì Bên C vẫn được nhận đủ <strong>{{ formData.tien_c }}</strong>  trên số tiền đặt cọc, khoản tiền này được trích từ Bên A (nếu Bên B không mua nữa và bỏ cọc) hoặc Bên B (nếu Bên A không bán nữa và đền cọc).</p>
                       
                       <p>Trong quá trình thực hiện nếu có gì trở ngại thì hai bên cùng nhau bàn bạc, thỏa thuận dựa trên tinh thần tôn trọng quyền lợi lẫn nhau. Nếu hai bên không thống nhất được thì đề nghị khiếu nại lên tòa án và giải quyết theo pháp luật Việt Nam quy định. Hợp đồng được lập thành 03 bản, mỗi bên giữ 01 bản và có giá trị pháp lý như nhau.</p>
                     </div>
@@ -499,7 +494,7 @@ export default {
           { name: 'c_ong_cap_ngay', label: 'Cấp ngày', type: 'date', required: true },
           { name: 'c_ong_noi_cap', label: 'Nơi cấp', type: 'text', placeholder: 'Cục cảnh sát', required: true },
           { name: 'c_dia_chi', label: 'Địa chỉ thường trú', type: 'text', placeholder: 'Thôn Hưng Mỹ - Cẩm Bình - Hà Tĩnh', required: true },
-          { name: 'tien_c', label: 'Tiền Bên C nhận', type: 'text', placeholder: '0 VND', required: true, inputmode: 'numeric' }
+          { name: 'tien_c', label: 'Tiền Bên C nhận', type: 'text', placeholder: '0', required: true, inputmode: 'numeric' }
         ]
       },
       {
@@ -522,10 +517,10 @@ export default {
         icon: 'fas fa-money-bill-wave',
         colorClass: 'group-emerald',
         fields: [
-          { name: 'gia_ban', label: 'Giá bán', type: 'text', placeholder: '2,000,000,000 VND', required: true, inputmode: 'numeric' },
-          { name: 'b_coc_tien', label: 'Tiền cọc', type: 'text', placeholder: '200,000,000 VND', required: true, inputmode: 'numeric' },
+          { name: 'gia_ban', label: 'Giá bán', type: 'text', placeholder: '2,000,000,000', required: true, inputmode: 'numeric' },
+          { name: 'b_coc_tien', label: 'Tiền cọc', type: 'text', placeholder: '200,000,000', required: true, inputmode: 'numeric' },
           { name: 'coc_bang', label: 'Cọc bằng', type: 'text', placeholder: 'Tiền mặt', required: true },
-          { name: 'tien_con_lai', label: 'Tiền còn lại', type: 'text', placeholder: '1,800,000,000 VND', required: true, inputmode: 'numeric', readonly: true }
+          { name: 'tien_con_lai', label: 'Tiền còn lại', type: 'text', placeholder: '1,800,000,000', required: true, inputmode: 'numeric', readonly: true }
         ]
       },
       {
@@ -538,7 +533,7 @@ export default {
           { name: 'ke_tu_ngay', label: 'Kể từ ngày', type: 'date', required: true },
           { name: 'den_ngay', label: 'Đến ngày', type: 'date', required: true, readonly: true },
           { name: 'x', label: 'Số lần bồi thường', type: 'number', placeholder: '2', required: true },
-          { name: 'boi_thuong', label: 'Tổng tiền bồi thường', type: 'text', placeholder: '400,000,000 VND', required: true, readonly: true, inputmode: 'numeric' }
+          { name: 'boi_thuong', label: 'Tổng tiền bồi thường', type: 'text', placeholder: '400,000,000', required: true, readonly: true, inputmode: 'numeric' }
         ]
       },
       {
@@ -551,6 +546,8 @@ export default {
           { name: 'tncn', label: 'Bên chịu thuế TNCN', type: 'select', options: ['A', 'B'], placeholder: 'Chọn bên', required: true },
           { name: 'pnn', label: 'Bên chịu thuế PNN', type: 'select', options: ['A', 'B'], placeholder: 'Chọn bên', required: true },
           { name: 'cc', label: 'Bên chịu phí công chứng', type: 'select', options: ['A', 'B'], placeholder: 'Chọn bên', required: true },
+          { name: 'ben_a', label: 'Bên A', type: 'textarea', placeholder: 'Thỏa thuận bên A', required: true },
+          { name: 'ben_b', label: 'Bên B', type: 'textarea', placeholder: 'Thỏa thuận bên B', required: true },
           { name: 'thoa_thuan_khac', label: 'Thỏa thuận khác', type: 'textarea', placeholder: 'Ghi chú thêm (nếu có)', required: true }
         ]
       }
@@ -625,20 +622,174 @@ export default {
       return number.toLocaleString('en-US')
     }
 
-    const convertToText = (amount) => {
-      if (!amount) return ''
-      const number = parseInt(amount.toString().replace(/[^\d]/g, ''))
-      if (isNaN(number) || number === 0) return ''
-      
-      if (number >= 1000000000) {
-        return Math.floor(number / 1000000000) + ' tỷ đồng'
-      } else if (number >= 1000000) {
-        return Math.floor(number / 1000000) + ' triệu đồng'
-      } else if (number >= 1000) {
-        return Math.floor(number / 1000) + ' nghìn đồng'
-      }
-      return number + ' đồng'
+    const convertToText = (input) => {
+    // Hàm xử lý và chuyển đổi input thành số
+    function chuyenDoiInput(input) {
+        // Nếu đã là số
+        if (typeof input === 'number') {
+            return input;
+        }
+        
+        // Nếu là string
+        if (typeof input === 'string') {
+            // Loại bỏ khoảng trắng đầu cuối
+            let chuoiSo = input.trim();
+            
+            // Nếu chuỗi rỗng
+            if (chuoiSo === '') {
+                return null;
+            }
+            
+            // Loại bỏ các ký tự không phải số, dấu chấm, dấu phẩy
+            // Chấp nhận: số, dấu chấm (.), dấu phẩy (,), khoảng trắng
+            chuoiSo = chuoiSo.replace(/[^\d.,\s]/g, '');
+            
+            // Loại bỏ khoảng trắng
+            chuoiSo = chuoiSo.replace(/\s/g, '');
+            
+            // Xử lý trường hợp có cả dấu chấm và phẩy
+            // Ví dụ: "1,234.56" hoặc "1.234,56"
+            const demCham = (chuoiSo.match(/\./g) || []).length;
+            const demPhay = (chuoiSo.match(/,/g) || []).length;
+            
+            if (demCham > 0 && demPhay > 0) {
+                // Tìm vị trí cuối cùng của dấu chấm và phẩy
+                const viTriChamCuoi = chuoiSo.lastIndexOf('.');
+                const viTriPhayCuoi = chuoiSo.lastIndexOf(',');
+                
+                if (viTriChamCuoi > viTriPhayCuoi) {
+                    // Dấu chấm ở cuối -> format như "1,234.56"
+                    chuoiSo = chuoiSo.replace(/,/g, '');
+                } else {
+                    // Dấu phẩy ở cuối -> format như "1.234,56"
+                    chuoiSo = chuoiSo.replace(/\./g, '').replace(',', '.');
+                }
+            } else if (demPhay === 1) {
+                // Chỉ có 1 dấu phẩy -> có thể là dấu thập phân
+                const viTriPhay = chuoiSo.indexOf(',');
+                const phanSauPhay = chuoiSo.substring(viTriPhay + 1);
+                
+                // Nếu phần sau phẩy <= 3 ký tự và toàn số -> coi như thập phân
+                if (phanSauPhay.length <= 3 && /^\d+$/.test(phanSauPhay)) {
+                    chuoiSo = chuoiSo.replace(',', '.');
+                } else {
+                    // Ngược lại loại bỏ dấu phẩy (coi như phân cách nghìn)
+                    chuoiSo = chuoiSo.replace(/,/g, '');
+                }
+            } else if (demPhay > 1) {
+                // Nhiều dấu phẩy -> loại bỏ hết (coi như phân cách nghìn)
+                chuoiSo = chuoiSo.replace(/,/g, '');
+            } else if (demCham > 1) {
+                // Nhiều dấu chấm -> chỉ giữ lại dấu cuối (coi như thập phân)
+                const viTriChamCuoi = chuoiSo.lastIndexOf('.');
+                chuoiSo = chuoiSo.substring(0, viTriChamCuoi).replace(/\./g, '') + chuoiSo.substring(viTriChamCuoi);
+            }
+            
+            // Chuyển đổi thành số
+            const so = parseFloat(chuoiSo);
+            return isNaN(so) ? null : so;
+        }
+        
+        return null;
     }
+    
+    // Chuyển đổi input thành số
+    const soTien = chuyenDoiInput(input);
+    
+    // Mảng các từ số cơ bản
+    const chuSo = [
+        '', 'một', 'hai', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín'
+    ];
+    
+    // Mảng các đơn vị
+    const donVi = ['', 'nghìn', 'triệu', 'tỷ'];
+    
+    // Hàm chuyển đổi một nhóm 3 số
+    function chuyenNhom3So(nhom) {
+        if (nhom === 0) return '';
+        
+        let ketQua = '';
+        const tram = Math.floor(nhom / 100);
+        const chuc = Math.floor((nhom % 100) / 10);
+        const donVi = nhom % 10;
+        
+        // Xử lý hàng trăm
+        if (tram > 0) {
+            ketQua += chuSo[tram] + ' trăm';
+        }
+        
+        // Xử lý hàng chục
+        if (chuc > 1) {
+            ketQua += (ketQua ? ' ' : '') + chuSo[chuc] + ' mười';
+            if (donVi > 0) {
+                if (donVi === 1) {
+                    ketQua += ' một';
+                } else if (donVi === 5 && chuc > 1) {
+                    ketQua += ' lăm';
+                } else {
+                    ketQua += ' ' + chuSo[donVi];
+                }
+            }
+        } else if (chuc === 1) {
+            ketQua += (ketQua ? ' ' : '') + 'mười';
+            if (donVi > 0) {
+                if (donVi === 5) {
+                    ketQua += ' lăm';
+                } else {
+                    ketQua += ' ' + chuSo[donVi];
+                }
+            }
+        } else if (chuc === 0 && donVi > 0) {
+            if (tram > 0) {
+                ketQua += ' lẻ ' + chuSo[donVi];
+            } else {
+                ketQua += chuSo[donVi];
+            }
+        }
+        
+        return ketQua.trim();
+    }
+    
+    // Kiểm tra đầu vào
+    if (soTien === null || soTien < 0 || !Number.isFinite(soTien)) {
+        return 'Số không hợp lệ';
+    }
+    
+    if (soTien === 0) {
+        return 'Không đồng';
+    }
+    
+    // Làm tròn đến hàng đồng (loại bỏ phần thập phân)
+    const soTienLamTron = Math.floor(soTien);
+    
+    // Chuyển đổi số thành chuỗi và chia thành các nhóm 3 số
+    const chuoiSo = soTienLamTron.toString();
+    const doDai = chuoiSo.length;
+    let ketQua = '';
+    let viTriDonVi = 0;
+    
+    // Chia số thành các nhóm 3 số từ phải sang trái
+    for (let i = doDai; i > 0; i -= 3) {
+        const batDau = Math.max(0, i - 3);
+        const nhom = parseInt(chuoiSo.substring(batDau, i));
+        
+        if (nhom > 0) {
+            const chuNhom = chuyenNhom3So(nhom);
+            if (chuNhom) {
+                const donViHienTai = donVi[viTriDonVi] || '';
+                ketQua = chuNhom + (donViHienTai ? ' ' + donViHienTai : '') + (ketQua ? ' ' + ketQua : '');
+            }
+        }
+        viTriDonVi++;
+    }
+    
+    // Viết hoa chữ cái đầu và thêm "đồng"
+    if (ketQua) {
+        ketQua = ketQua.charAt(0).toUpperCase() + ketQua.slice(1) + ' đồng';
+    }
+    
+    return ketQua;
+}
 
     const convertNumberToText = (num) => {
       const numberMap = {
@@ -646,7 +797,15 @@ export default {
         '2': 'hai', 
         '3': 'ba',
         '4': 'bốn',
-        '5': 'năm'
+        '5': 'năm',
+        '6': 'sáu',
+        '7': 'bảy',
+        '8': 'tám',
+        '9': 'chín',
+        '10': 'mười',
+        '11': 'mười một',
+        '12': 'mười hai',
+        '13': 'mười ba'
       }
       return numberMap[num?.toString()] || num?.toString() || ''
     }
@@ -667,7 +826,7 @@ export default {
         const deposit = parseFloat(formData.b_coc_tien.toString().replace(/[^\d]/g, '')) || 0
         const remaining = totalPrice - deposit
         if (remaining >= 0) {
-          formData.tien_con_lai = formatCurrency(remaining) + ' VND'
+          formData.tien_con_lai = formatCurrency(remaining)
         }
       }
     }
@@ -678,7 +837,7 @@ export default {
         const multiplier = parseFloat(formData.x) || 0
         const compensation = depositAmount * multiplier
         if (compensation > 0) {
-          formData.boi_thuong = formatCurrency(compensation) + ' VND'
+          formData.boi_thuong = formatCurrency(compensation)
         }
       }
     }
@@ -718,7 +877,7 @@ export default {
       if (['gia_ban', 'b_coc_tien', 'tien_con_lai', 'tien_c', 'boi_thuong'].includes(fieldName) && value) {
         const formatted = formatCurrency(value)
         if (formatted) {
-          formData[fieldName] = formatted + ' VND'
+          formData[fieldName] = formatted
         }
       }
     }
