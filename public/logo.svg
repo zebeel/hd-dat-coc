@@ -1,0 +1,47 @@
+<svg viewBox="0 0 128 128" width="128" height="128" role="img" aria-labelledby="title desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="title">Contract Web Logo</title>
+  <desc id="desc">Một biểu tượng tờ hợp đồng có góc gập, các dòng chữ, chữ ký và ngòi bút</desc>
+  <defs>
+    <style>
+      :root {
+        --logo-primary: #111;     /* nét vẽ */
+        --logo-accent:  #2f80ed;  /* điểm nhấn (góc gập &amp; ngòi bút) */
+        --logo-paper:   #ffffff;  /* nền tờ giấy */
+      }
+    </style>
+    <clipPath id="paper-clip">
+      <rect x="14" y="10" width="80" height="108" rx="10" ry="10"></rect>
+    </clipPath>
+  </defs>
+
+  <!-- Bóng nhẹ -->
+  <ellipse cx="54" cy="120" rx="38" ry="6" fill="#000" opacity="0.08"></ellipse>
+
+  <!-- Tờ giấy -->
+  <rect x="14" y="10" width="80" height="108" rx="10" ry="10" fill="var(--logo-paper)" stroke="var(--logo-primary)" stroke-width="3"></rect>
+
+  <!-- Góc gập -->
+  <polygon points="76,10 94,28 94,10" fill="var(--logo-accent)" stroke="var(--logo-primary)" stroke-width="3" stroke-linejoin="round"></polygon>
+
+  <!-- Các dòng “text” trên giấy -->
+  <g stroke="var(--logo-primary)" stroke-width="3" stroke-linecap="round" clip-path="url(#paper-clip)">
+    <line x1="26" y1="30" x2="82" y2="30"></line>
+    <line x1="26" y1="44" x2="76" y2="44"></line>
+    <line x1="26" y1="58" x2="70" y2="58"></line>
+    <line x1="26" y1="72" x2="82" y2="72"></line>
+  </g>
+
+  <!-- Chữ ký (nét lượn) -->
+  <path d="M26 92
+           C34 86, 42 100, 50 94
+           S66 84, 74 92
+           S86 100, 92 90" fill="none" stroke="var(--logo-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- Ngòi bút ký (điểm nhấn) -->
+  <g transform="translate(88,86) rotate(20)">
+    <!-- thân ngòi -->
+    <path d="M0 0 L18 0 L12 16 L6 16 Z" fill="var(--logo-accent)" stroke="var(--logo-primary)" stroke-width="3" stroke-linejoin="round"></path>
+    <!-- lỗ ngòi -->
+    <circle cx="9" cy="7" r="2.2" fill="var(--logo-paper)" stroke="var(--logo-primary)" stroke-width="2"></circle>
+  </g>
+</svg>
