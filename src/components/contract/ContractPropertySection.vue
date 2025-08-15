@@ -55,10 +55,10 @@ defineProps<Props>()
 }
 
 .property-box {
-  border: 1px solid #000;
-  padding: 1rem;
-  margin: 1rem 0;
-  background: #fafafa;
+  /* border: 1px solid #000; */
+  /* padding: 1rem;
+  margin: 1rem 0; */
+  /* background: #fafafa; */
   font-family: 'Times New Roman', serif;
   line-height: 1.6;
 }

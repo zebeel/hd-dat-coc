@@ -178,6 +178,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { FormData } from '../config/formConfig'
+import { useFormCalculations } from '../composables/useFormCalculations'
 import ContractPartySection from './contract/ContractPartySection.vue'
 import ContractPropertySection from './contract/ContractPropertySection.vue'
 import ContractPaymentSection from './contract/ContractPaymentSection.vue'
@@ -201,47 +202,18 @@ interface Emits {
   (e: 'print'): void
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 defineEmits<Emits>()
 
 const previewRef = ref<HTMLElement>()
 
-// Helper functions (you may want to move these to a shared utility)
-const formatDate = (dateString: string): string => {
-  if (!dateString) return ''
-  const date = new Date(dateString)
-  if (isNaN(date.getTime())) return ''
-  
-  const day = date.getDate().toString().padStart(2, '0')
-  const month = (date.getMonth() + 1).toString().padStart(2, '0')
-  const year = date.getFullYear()
-  return `${day}/${month}/${year}`
-}
-
-const getDatePart = (dateString: string, part: 'day' | 'month' | 'year'): string => {
-  if (!dateString) return part === 'year' ? '____' : '__'
-  const date = new Date(dateString)
-  if (isNaN(date.getTime())) return part === 'year' ? '____' : '__'
-  
-  if (part === 'day') return date.getDate().toString()
-  if (part === 'month') return (date.getMonth() + 1).toString()
-  if (part === 'year') return date.getFullYear().toString()
-  return '__'
-}
-
-// These should ideally come from the calculations composable
-const convertToText = (input: string): string => {
-  // Simplified implementation - use the full implementation from useFormCalculations
-  return input ? `${input} (bằng chữ)` : ''
-}
-
-const convertNumberToText = (num: string | number): string => {
-  const numberMap: Record<string, string> = {
-    '1': 'một', '2': 'hai', '3': 'ba', '4': 'bốn', '5': 'năm',
-    '6': 'sáu', '7': 'bảy', '8': 'tám', '9': 'chín', '10': 'mười'
-  }
-  return numberMap[num?.toString()] || num?.toString() || ''
-}
+// Use the composable to get all helper functions
+const {
+  convertToText,
+  convertNumberToText,
+  formatDate,
+  getDatePart
+} = useFormCalculations(props.formData)
 
 defineExpose({
   previewRef

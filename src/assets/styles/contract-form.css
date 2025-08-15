@@ -942,8 +942,8 @@ body {
 
 .property-box {
   /* border: 1px solid #000; */
-  padding: 1rem;
-  margin: 1rem 0;
+  padding: 0 1rem;
+  /* margin: 1rem 0; */
 }
 
 .payment-table {

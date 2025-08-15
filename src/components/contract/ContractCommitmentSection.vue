@@ -16,7 +16,7 @@
         (<strong>{{ convertNumberToText(commitmentData.x) || '___' }}</strong>) 
         lần số tiền mà Bên B đã đặt cọc cho Bên A. 
         Tổng số tiền hoàn trả và bồi thường là 
-        <strong>{{ commitmentData.boi_thuong || '___' }}</strong> 
+        <strong>{{ commitmentData.boi_thuong || '___' }} đồng</strong> 
         (Bằng chữ: <strong>{{ convertToText(commitmentData.boi_thuong) || '___' }}</strong>).
       </p>
       
@@ -27,7 +27,7 @@
       
       <p v-if="commitmentData.tien_c && commitmentData.tien_c !== '0'">
         Nếu giao dịch không thành công thì Bên C vẫn được nhận đủ 
-        <strong>{{ commitmentData.tien_c }}</strong> 
+        <strong>{{ commitmentData.tien_c }} đồng</strong> 
         trên số tiền đặt cọc, khoản tiền này được trích từ Bên A 
         (nếu Bên B không mua nữa và bị cọc) hoặc Bên B (nếu Bên A không bán nữa và đền cọc).
       </p>

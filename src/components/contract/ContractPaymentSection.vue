@@ -6,13 +6,13 @@
       <tbody>
         <tr>
           <td colspan="2">
-            Tổng giá bán: <strong>{{ paymentData.gia_ban || '_______________' }}</strong> 
+            Tổng giá bán: <strong>{{ paymentData.gia_ban || '_______________' }} đồng</strong> 
             (Bằng chữ: <strong>{{ convertToText(paymentData.gia_ban) || '_______________' }}</strong>).
           </td>
         </tr>
         <tr>
           <td colspan="2">
-            Bên B cọc số tiền: <strong>{{ paymentData.b_coc_tien || '_______________' }}</strong> 
+            Bên B cọc số tiền: <strong>{{ paymentData.b_coc_tien || '_______________' }} đồng</strong> 
             (Bằng chữ: <strong>{{ convertToText(paymentData.b_coc_tien) || '_______________' }}</strong>). 
             Hình thức cọc bằng <strong>{{ paymentData.coc_bang || '_______________' }}</strong>
             <span v-if="paymentData.coc_bang === 'Chuyển khoản' && paymentData.coc_ngan_hang">
@@ -24,7 +24,7 @@
         </tr>
         <tr>
           <td colspan="2">
-            Số tiền còn lại: <strong>{{ paymentData.tien_con_lai || '_______________' }}</strong> 
+            Số tiền còn lại: <strong>{{ paymentData.tien_con_lai || '_______________' }} đồng</strong> 
             (Bằng chữ: <strong>{{ convertToText(paymentData.tien_con_lai) || '_______________' }}</strong>).
           </td>
         </tr>

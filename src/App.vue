@@ -313,21 +313,227 @@ const printPreview = (): void => {
   if (!hasPreview.value || !validateFormData()) return
   
   try {
-    const printWindow = window.open('', '_blank')
+    // Tìm element contract-preview
+    const contractPreviewElement = document.querySelector('.contract-preview')
+    if (!contractPreviewElement) {
+      showNotification('Không tìm thấy nội dung để in. Vui lòng tạo bản xem trước trước.', 'error')
+      return
+    }
+
+    // Tạo cửa sổ in mới
+    const printWindow = window.open('', '_blank', 'width=800,height=600')
     if (!printWindow) {
       showNotification('Không thể mở cửa sổ in. Vui lòng cho phép popup.', 'error')
       return
     }
     
-    // Implementation for printing (simplified for brevity)
     showNotification('Đang chuẩn bị in...', 'info')
+
+    // CSS styles cho trang in
+    const printStyles = `
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: 'Times New Roman', serif;
+          font-size: 14px;
+          line-height: 1.6;
+          color: #000;
+          background: white;
+          margin: 0;
+          padding: 20px;
+        }
+        
+        .contract-document {
+          max-width: none;
+          margin: 0;
+          padding: 0;
+          background: white;
+          box-shadow: none;
+          font-family: 'Times New Roman', serif;
+          line-height: 1.6;
+          color: #000;
+        }
+        
+        .contract-header {
+          text-align: center;
+          margin-bottom: 2rem;
+        }
+        
+        .contract-header h1 {
+          font-size: 16px;
+          font-weight: bold;
+          margin: 0 0 8px 0;
+          text-transform: uppercase;
+        }
+        
+        .contract-header h2 {
+          font-size: 18px;
+          font-weight: bold;
+          margin: 24px 0 8px 0;
+          text-transform: uppercase;
+        }
+        
+        .contract-header .underline {
+          text-decoration: underline;
+          font-weight: bold;
+          font-size: 14px;
+        }
+        
+        .contract-header .subtitle {
+          font-style: italic;
+          margin-top: 8px;
+          font-size: 14px;
+        }
+        
+        .contract-body {
+          text-align: left;
+        }
+        
+        .contract-date {
+          margin-bottom: 24px;
+          font-size: 14px;
+        }
+        
+        .party-section,
+        .property-section,
+        .payment-section,
+        .terms-section,
+        .tax-section,
+        .commitment-section,
+        .signature-section {
+          margin-bottom: 16px;
+        }
+        
+        .section-title {
+          font-weight: bold;
+          margin-bottom: 8px;
+        }
+        
+        p {
+          margin-bottom: 12px;
+          text-align: justify;
+        }
+        
+        strong {
+          font-weight: bold;
+        }
+        
+        em {
+          font-style: italic;
+        }
+        
+        .signature-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          margin-top: 40px;
+          page-break-inside: avoid;
+        }
+        
+        .signature-block {
+          text-align: center;
+        }
+        
+        .signature-title {
+          font-weight: bold;
+          margin-bottom: 8px;
+          text-transform: uppercase;
+        }
+        
+        .signature-subtitle {
+          font-style: italic;
+          margin-bottom: 60px;
+          font-size: 13px;
+        }
+        
+        .signature-name {
+          font-weight: bold;
+          margin-top: 8px;
+        }
+        
+        @page {
+          size: A4;
+          margin: 2cm;
+        }
+        
+        @media print {
+          body {
+            padding: 0;
+            font-size: 12px;
+          }
+          
+          .contract-header h1 {
+            font-size: 14px;
+          }
+          
+          .contract-header h2 {
+            font-size: 16px;
+          }
+          
+          .signature-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+          }
+          
+          .signature-subtitle {
+            margin-bottom: 50px;
+          }
+        }
+      </style>
+    `
+
+    // Tạo HTML content cho trang in
+    const printContent = `
+      <!DOCTYPE html>
+      <html lang="vi">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hợp đồng đặt cọc - ${formData.a_ong || 'Hợp đồng'}</title>
+        ${printStyles}
+      </head>
+      <body>
+        ${contractPreviewElement.innerHTML}
+      </body>
+      </html>
+    `
+
+    // Ghi nội dung vào cửa sổ in
+    printWindow.document.write(printContent)
+    printWindow.document.close()
+
+    // Đợi tải xong rồi mới in
+    printWindow.onload = () => {
+      setTimeout(() => {
+        printWindow.focus()
+        printWindow.print()
+        
+        // Đóng cửa sổ sau khi in (tùy chọn)
+        printWindow.onafterprint = () => {
+          printWindow.close()
+        }
+        
+        // Fallback đóng cửa sổ sau 5 giây nếu người dùng không in
+        setTimeout(() => {
+          if (!printWindow.closed) {
+            printWindow.close()
+          }
+        }, 5000)
+      }, 500)
+    }
+
+    // Cập nhật step
+    activeStep.value = 3
     
-    setTimeout(() => {
-      printWindow.print()
-      printWindow.close()
-    }, 250)
   } catch (error) {
-    showNotification('Có lỗi xảy ra khi in', 'error')
+    console.error('Lỗi khi in:', error)
+    showNotification('Có lỗi xảy ra khi in. Vui lòng thử lại.', 'error')
   }
 }
 
