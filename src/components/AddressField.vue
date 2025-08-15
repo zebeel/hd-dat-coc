@@ -130,11 +130,16 @@ watch(() => props.value, (newValue) => {
   }
 }, { immediate: true })
 
-// Watch fullAddress changes
+// Watch fullAddress changes and emit immediately
 watch(fullAddress, (newAddress) => {
   if (newAddress !== props.value) {
     emit('input', newAddress)
   }
+})
+
+// Watch individual components for changes
+watch([manualAddress, selectedWard, selectedProvince], () => {
+  handleAddressChange()
 })
 
 // Initialize with default province and parse initial value
